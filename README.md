@@ -1,1 +1,1 @@
-It's going to be a game and it will be awesome. Just you wait. 
+It's going to be a game and it will be awesome. Just you wait!
