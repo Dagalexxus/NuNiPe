@@ -1,0 +1,38 @@
+Ressourcen
+	Holz
+	Stein
+	Essen
+	Gold
+	Ansehen
+	Population (Taverne)
+
+Gebäude
+	Rathaus
+		Hier werden Gebäude gebaut und aufgewertet.	
+		Übersicht über alle notwendigen Funktionen, welche das Dorf betreffen.
+	Taverne
+		Hier werden Quests ausgeschrieben und Helden rekrutiert.
+		Helden können manuell oder automatisch neue Quests annehmen.
+		Die Taverne hat nur eine begrenzte Zahl an Plätzen frei. Sollte das Ansehen zu hoch sein, wollen zu viele Helden kommen, was sich negativ auf das Ansehen auswirkt.
+	Rohstoffgebäude
+		Generieren in regelmäßigen Abständen Rohstoffe
+		Sägewerk
+		Mine
+		Bauernhof
+	Bank
+		Hier kann Gold eingezahlt oder ein Kredit aufgenommen werden.
+		Eingezahltes Gold erwirtschaftet Zinsen.
+		Kann ein Kredit nicht im vorgesehen Rahmen mit Zinsen zurückgezahlt werden, engagiert die Bank Helden zum Schuldeneintreiben (Gebäude werden beschädigt oder Helden ermordet).
+	Marktplatz
+		Hier können Rohstoffe verkauft werden
+			Automatisch: Rohstoffe können in bestimmten Mengen automatisch gekauft/verkauft werden. Sofern die Menge gering genug ist, sinkt der Wert nicht.
+			Manuell: Rohstoffe können im Notfall auch in benötigten Mengen manuell gekauft und verkauft werden.
+		Wird ein Rohstoff zu oft verkauft, sinkt sein Wert für eine bestimmte Zeit. Wird ein Rohstoff zu oft gekauft, steigen seine Kosten.
+	Friedhof
+		Hier werden gestorbene Helden verewigt. Jedes Grab senkt das Ansehen. Gräber können für Gold entfernt werden. Je stärker der Held, desto größer der Ansehensmalus und die Kosten.
+	Mauer
+		Erhöht die Toleranz für gescheiterte Quests, bevor Gebäude beschädigt werden.
+
+Helden
+	Helden haben je nach Rarität unterschiedlich starke Fähigkeiten, die deren Todeswahrscheinlichkeit senken, Kosten erhöhen oder gegen bestimmte Effekte absichern/anfällig machen.
+	Nach jeder Quest wird berechnet, ob der Held überlebt hat. Bei Erfolg wird der Held bezahlt, bei Misserfolg sinkt das Ansehen, aber es gibt Gold (Ausrüstung des Helden verkauft)
