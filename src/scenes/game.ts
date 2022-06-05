@@ -4,6 +4,7 @@ export class GameScene extends Phaser.Scene{
     drawables:{position_x:number,position_y:number,texture:string}[]=[];
     spritemap:Map<any,Phaser.GameObjects.Sprite>=new Map<any,Phaser.GameObjects.Sprite>();
     player:Player;
+    lasttick:number=0;
     constructor(){
         super('GameScene');
         this.player=new Player("town");
@@ -25,6 +26,10 @@ export class GameScene extends Phaser.Scene{
     }
 
     update(time: number, delta: number): void {
+        if(time>this.lasttick+1){
+            this.player.update(time);
+            this.lasttick=time;
+        }
         this.draw();
         
         
