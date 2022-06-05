@@ -15,8 +15,7 @@ Gebäude
 	Taverne (10 Lvl)
 		Hier werden Quests ausgeschrieben und Helden rekrutiert.
 		Helden können manuell oder automatisch neue Quests annehmen.
-		Die Taverne hat nur eine begrenzte Zahl an Plätzen frei. Sollte das Ansehen zu hoch sein, wollen zu viele Helden kommen, was sich 
-		negativ auf das Ansehen auswirkt.
+		Die Taverne hat nur eine begrenzte Zahl an Plätzen frei. Sollte das Ansehen zu hoch sein, wollen zu viele Helden kommen, was zu Aufständen führt.
 	Rohstoffgebäude (20 Lvl)
 		Generieren in regelmäßigen Abständen Rohstoffe
 		Sägewerk
