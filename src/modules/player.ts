@@ -22,4 +22,8 @@ export class Player{
         });
         return result;
     }
+
+    update(time:number){
+        this.town.update(time);
+    }
 }

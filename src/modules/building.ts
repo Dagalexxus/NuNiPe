@@ -8,7 +8,7 @@ export class Building{
         this.texture=texture
     }
 
-    update(){
+    update(time:number){
         
     }
     

@@ -21,8 +21,8 @@ export class Town{
 
     }
 
-    update(){
-        this.buildings.forEach((building)=>building.update());
+    update(time:number){
+        this.buildings.forEach((building)=>building.update(time));
     }
 
     add_building(b:Building){
