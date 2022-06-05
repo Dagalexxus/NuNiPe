@@ -7,34 +7,36 @@ Ressourcen
 	Population (Taverne)
 
 Gebäude
-	Rathaus
+	Rathaus (20 Lvl)
 		Hier werden Gebäude gebaut und aufgewertet.	
 		Übersicht über alle notwendigen Funktionen, welche das Dorf betreffen.
-	Taverne
+		Helden loswerden.
+		Bauzeit verringern.
+	Taverne (10 Lvl)
 		Hier werden Quests ausgeschrieben und Helden rekrutiert.
 		Helden können manuell oder automatisch neue Quests annehmen.
 		Die Taverne hat nur eine begrenzte Zahl an Plätzen frei. Sollte das Ansehen zu hoch sein, wollen zu viele Helden kommen, was sich 
 		negativ auf das Ansehen auswirkt.
-	Rohstoffgebäude
+	Rohstoffgebäude (20 Lvl)
 		Generieren in regelmäßigen Abständen Rohstoffe
 		Sägewerk
 		Mine
 		Bauernhof
-	Bank
+	Bank	(5 Lvl)
 		Hier kann Gold eingezahlt oder ein Kredit aufgenommen werden.
 		Eingezahltes Gold erwirtschaftet Zinsen.
 		Kann ein Kredit nicht im vorgesehen Rahmen mit Zinsen zurückgezahlt werden, engagiert die Bank Helden zum Schuldeneintreiben 
 		(Gebäude werden beschädigt oder Helden ermordet).
-	Marktplatz
+	Marktplatz	(5 Lvl)
 		Hier können Rohstoffe verkauft werden
 			Automatisch: Rohstoffe können in bestimmten Mengen automatisch gekauft/verkauft werden. Sofern die Menge gering genug ist, 
 			sinkt der Wert nicht.
 			Manuell: Rohstoffe können im Notfall auch in benötigten Mengen manuell gekauft und verkauft werden.
 		Wird ein Rohstoff zu oft verkauft, sinkt sein Wert für eine bestimmte Zeit. Wird ein Rohstoff zu oft gekauft, steigen seine Kosten.
-	Friedhof
+	Friedhof	(3 Lvl)
 		Hier werden gestorbene Helden verewigt. Jedes Grab senkt das Ansehen. Gräber können für Gold entfernt werden. Je stärker der Held, desto 
 		größer der Ansehensmalus und die Kosten.
-	Mauer
+	Mauer	(5 Lvl)
 		Erhöht die Toleranz für gescheiterte Quests, bevor Gebäude beschädigt werden.
 
 Helden
