@@ -2,18 +2,23 @@ import {Building} from ".\\building"
 export class Town{
 
     buildings:Building[];
+    position_x:number=0
+    position_y:number=0
+    texture:string;
     gold:number
     wood:number
     stone:number
     food:number
 
 
-    constructor(){
+    constructor(texture:string){
         this.buildings=[];
         this.gold=0;
         this.wood=0;
         this.stone=0;
         this.food=0;
+        this.texture=texture;
+
     }
 
     update(){
