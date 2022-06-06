@@ -5,10 +5,16 @@ export class GameScene extends Phaser.Scene{
     spritemap:Map<any,Phaser.GameObjects.Sprite>=new Map<any,Phaser.GameObjects.Sprite>();
     player:Player;
     lasttick:number=0;
-    animConfig = {
+    animConfigHouse = {
         key: 'jump',
         frames: 'houseanimation',
         frameRate: 20,
+        repeat: -1
+    };
+    animConfigTree = {
+        key: 'leaves',
+        frames: 'treeanimation',
+        frameRate: 10,
         repeat: -1
     };
     
@@ -23,13 +29,15 @@ export class GameScene extends Phaser.Scene{
       this.load.image("tree","assets/tree.png");
       this.load.image("town","assets/town.png");
       this.load.atlas("houseanimation","assets/animation.png","assets/animation.json");
+      this.load.atlas("treeanimation","assets/treeanimation.png","assets/treeanimation.json");
 
     }
 
     create ()
     {
-        this.anims.create(this.animConfig);
-        
+        this.anims.create(this.animConfigHouse);
+        this.anims.create(this.animConfigTree);
+
         this.drawables.forEach((item)=>{this.create_sprite(item)});
         this.spritemap.get(this.player.town)?.setScale(20,10);
 
@@ -51,6 +59,10 @@ export class GameScene extends Phaser.Scene{
         this.spritemap.set(item,sprite);
         if(item.texture==="houseanimation"){
             sprite.play("jump");
+        }
+        else if (item.texture==="treeanimation"){
+            sprite.play("leaves");
+            console.log(this.spritemap);
         }
         
     }
