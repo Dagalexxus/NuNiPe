@@ -9,9 +9,12 @@ export class Player{
         this.town.add_building(new Building(200,200,"houseanimation"));
         this.town.add_building(new Building(150,250,"houseanimation"));
         this.town.add_building(new Building(260,270,"houseanimation"));
-        this.town.add_building(new Building(370,300,"tree"));
         this.town.add_building(new Building(480,350,"house"));
-        this.town.add_building(new Building(290,450,"tree"));
+        this.town.add_building(new Building(370,300,"treeanimation"));
+        this.town.add_building(new Building(240,210,"treeanimation"));
+        this.town.add_building(new Building(290,200,"treeanimation"));
+        this.town.add_building(new Building(490,250,"treeanimation"));
+        this.town.add_building(new Building(490,120,"treeanimation"));
     }
 
     get_drawables(){
