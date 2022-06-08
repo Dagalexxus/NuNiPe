@@ -1,10 +1,10 @@
 export class Building{
-    position_x:number
-    position_y:number
+    positionX:number
+    positionY:number
     texture:string
     constructor(posx:number,posy:number,texture:string){
-        this.position_x=posx;
-        this.position_y=posy;
+        this.positionX=posx;
+        this.positionY=posy;
         this.texture=texture
     }
 

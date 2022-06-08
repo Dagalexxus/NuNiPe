@@ -1,9 +1,9 @@
-import {Building} from ".\\building"
+import {Building} from "./Building"
 export class Town{
 
     buildings:Building[];
-    position_x:number=0
-    position_y:number=0
+    positionX:number=0
+    positionY:number=0
     texture:string;
     gold:number
     wood:number
@@ -25,11 +25,11 @@ export class Town{
         this.buildings.forEach((building)=>building.update(time));
     }
 
-    add_building(b:Building){
+    addBuilding(b:Building){
         this.buildings.push(b);
     }
 
-    remove_building(b:Building){
+    removeBuilding(b:Building){
         this.buildings.splice(this.buildings.indexOf(b),1);
     }
 }
