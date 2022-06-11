@@ -17,6 +17,12 @@ export class GameScene extends Phaser.Scene{
         frameRate: 10,
         repeat: -1
     };
+    animConfigBomb={
+        key: 'bomb',
+        frames: 'bombAnimation',
+        frameRate:20,
+        repeat:-1
+    };
     
     constructor(){
         super('GameScene');
@@ -30,6 +36,7 @@ export class GameScene extends Phaser.Scene{
       this.load.image("town","assets/Town.png");
       this.load.atlas("houseAnimation","assets/Animation.png","assets/Animation.json");
       this.load.atlas("treeAnimation","assets/TreeAnimation.png","assets/TreeAnimation.json");
+      this.load.atlas("bombAnimation","assets/BombAnimation.png","assets/BombAnimation.json");
 
     }
 
@@ -37,6 +44,7 @@ export class GameScene extends Phaser.Scene{
     {
         this.anims.create(this.animConfigHouse);
         this.anims.create(this.animConfigTree);
+        this.anims.create(this.animConfigBomb);
 
         this.drawables.forEach((item)=>{this.createSprite(item)});
         this.spriteMap.get(this.player.town)?.setScale(20,10);
@@ -62,7 +70,10 @@ export class GameScene extends Phaser.Scene{
         }
         else if (item.texture==="treeAnimation"){
             sprite.play("leaves");
-            console.log(this.spriteMap);
+        }
+        else if (item.texture==="bombAnimation"){
+            sprite.play("bomb");
+
         }
         
     }

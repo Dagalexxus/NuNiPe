@@ -15,6 +15,7 @@ export class Player{
         this.town.addBuilding(new Building(290,200,"treeAnimation"));
         this.town.addBuilding(new Building(490,250,"treeAnimation"));
         this.town.addBuilding(new Building(490,120,"treeAnimation"));
+        this.town.addBuilding(new Building(100,100,"bombAnimation"));
     }
 
     getDrawables(){
