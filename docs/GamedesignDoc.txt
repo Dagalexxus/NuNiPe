@@ -21,6 +21,7 @@ Gebäude
 		Sägewerk
 		Mine
 		Bauernhof
+		Mit Tap Rohstoffe bekommen
 	Bank	(5 Lvl)
 		Hier kann Gold eingezahlt oder ein Kredit aufgenommen werden.
 		Eingezahltes Gold erwirtschaftet Zinsen.
