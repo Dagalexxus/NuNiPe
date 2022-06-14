@@ -44,3 +44,5 @@ Helden
 	Kosten erhöhen oder gegen bestimmte Effekte absichern/anfällig machen.
 	Nach jeder Quest wird berechnet, ob der Held überlebt hat. Bei Erfolg wird der Held bezahlt, bei Misserfolg sinkt das Ansehen, 
 	aber es gibt Gold (Ausrüstung des Helden verkauft)
+Gegner
+	Gnorpfengnarbs
