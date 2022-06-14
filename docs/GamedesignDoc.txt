@@ -46,3 +46,11 @@ Helden
 	aber es gibt Gold (Ausrüstung des Helden verkauft)
 Gegner
 	Gnorpfengnarbs
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+LOP
+activity based vs time based
+Endlosspiel oder Iterationen/Scheitern
+Prestige level/Skilltree bei reset
+Automatisierungsgrad
+Entscheidungs/Handlungsmöglichkeiten des Spielers
