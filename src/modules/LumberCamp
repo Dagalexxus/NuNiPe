@@ -2,25 +2,20 @@ import {RessourceBuilding} from "./RessourceBuilding";
 import { Town } from "./Town";
 
 export class LumberCamp extends RessourceBuilding{
-    constructor(posX:number, posY:number, texture:string, currentAmount:number, level:number, town:Town){
-        super(posX, posY, texture, level, currentAmount, town)
+    constructor(posX:number, posY:number, texture:string, level:number, town:Town){
+        super(posX, posY, texture, level, town)
     }
 
-    ressource:string = "wood";
-    currentAmount:number;
-    town:Town;
-
     update(time: number): void {
-        this.currentAmount += ((this.prodPerLevel[this.level])/60);
-        if (this.currentAmount > this.capacity[this.level]){
-            this.currentAmount = this.capacity[this.level]
-            this.town.wood = this.currentAmount
+        this.town.wood += ((this.prodPerLevel[this.level])/60);
+        if (this.town.wood > this.capacity[this.level]){
+            this.town.wood = this.capacity[this.level]
         }
     }
 
     levelUp(): void {
-        if (this.currentAmount >= (this.buildcostPerLeveL[this.level+1]) && this.town.stone && this.town.gold &&this.level < 15){
-            this.currentAmount -= this.buildcostPerLeveL[this.level+1];
+        if (this.town.wood >= (this.buildcostPerLeveL[this.level+1]) && this.town.stone >= (this.buildcostPerLeveL[this.level+1]) && this.town.gold >= this.buildcostPerLeveL[this.level+1] && this.level < 15){
+            this.town.wood -= this.buildcostPerLeveL[this.level+1];
             this.level++;
         }
     }
