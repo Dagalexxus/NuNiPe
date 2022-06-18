@@ -46,6 +46,14 @@ Helden
 	aber es gibt Gold (Ausrüstung des Helden verkauft)
 Gegner
 	Gnorpfengnarbs
+	
+helden kosten upkeep in der taverne
+questkosten werden automatisch berechnet
+helden kosten nichts auf quests
+helden belegen plätze in taverne
+quests müssen manuell gestartet werden
+zu hohe helden machen keine niedrigen quests
+
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 LOP
