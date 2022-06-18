@@ -75,15 +75,10 @@ export class RessourceBuilding extends Building{
     };
 
     level:number;
-    currentAmount:number;
     
-    constructor(posx:number,posy:number,texture:string, level:number, currentAmount:number, town:Town){
+    constructor(posx:number,posy:number,texture:string, level:number, town:Town){
         super(posx, posy, texture,town)
         this.level = level;
-        this.currentAmount = currentAmount;
-        if (this.currentAmount > this.capacity[level]){
-            currentAmount = this.capacity[level]
-        }
     }
 
 

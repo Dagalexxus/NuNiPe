@@ -7,9 +7,9 @@ export class LumberCamp extends RessourceBuilding{
     }
 
     update(time: number): void {
-        this.town.wood += ((this.prodPerLevel[this.level])/60);
-        if (this.town.wood > this.capacity[this.level]){
-            this.town.wood = this.capacity[this.level]
+        this.town.food += ((this.prodPerLevel[this.level])/60);
+        if (this.town.food > this.capacity[this.level]){
+            this.town.food = this.capacity[this.level]
         }
     }
 
