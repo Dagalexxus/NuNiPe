@@ -1,0 +1,12 @@
+{
+    "tutorial": [{
+        "questTitle": "Tutorial",
+        "instruction": "Finish all the basic riddles about if-conditions"
+
+    }],
+    "earlyGame": [{
+        "questTitle": "Finished the Prototype",
+        "instruction": "Please write a review"
+
+    }]
+}
