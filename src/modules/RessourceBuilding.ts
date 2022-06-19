@@ -1,6 +1,6 @@
 import {Building} from "./Building"
 import {Town} from "./Town"
-import  {Animations,Textures} from "../modules/Animation"
+import  {Animations,Textures} from "./Animation"
 
 export class RessourceBuilding extends Building{
     readonly capacity: {[level:number]: number} = {
@@ -77,7 +77,7 @@ export class RessourceBuilding extends Building{
 
     level:number;
     
-    constructor(posx:number,posy:number,texture:Animations|Textures, level:number, town:Town){
+    constructor(posx:number,posy:number,texture:Textures, level:number, town:Town){
         super(posx, posy, texture,town)
         this.level = level;
     }

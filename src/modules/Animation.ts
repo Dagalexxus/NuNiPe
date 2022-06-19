@@ -3,12 +3,14 @@ import { GameObjects } from "phaser";
 export enum Textures{
     house="house",
     tree="tree",
-    town="town"
+    town="town",
+    emptySpot="emptySpot"
 }
 export var fileMapTexture:Map<string,any>=new Map<string,any>([
     ["house","assets/House.png"],
     ["tree","assets/Tree.png"],
     ["town","assets/Town.png"],
+    ["emptySpot","assets/EmptySpot.png"]
 ]);
 export enum AnimationTextures{
     houseAnimation="houseAnimation",
@@ -35,19 +37,19 @@ export class AnimationConfigs{
         key: 'jump',
         frames: 'houseAnimation',
         frameRate: 20,
-        repeat: -1
+        repeat: 0
     };
     static animConfigTree = {
         key: 'leaves',
         frames: 'treeAnimation',
         frameRate: 10,
-        repeat: -1
+        repeat: 0
     };
     static animConfigBomb={
         key: 'bomb',
         frames: 'bombAnimation',
         frameRate:20,
-        repeat:-1
+        repeat:0
     };
     private constructor(private readonly key: string, public readonly value: any){
 

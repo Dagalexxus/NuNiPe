@@ -1,9 +1,9 @@
 import {RessourceBuilding} from "./RessourceBuilding";
 import { Town } from "./Town";
-import  {Animations,Textures} from "../modules/Animation"
+import  {Animations,Textures} from "./Animation"
 
 export class LumberCamp extends RessourceBuilding{
-    constructor(posX:number, posY:number, texture:Animations|Textures, level:number, town:Town){
+    constructor(posX:number, posY:number, texture:Textures, level:number, town:Town){
         super(posX, posY, texture, level, town)
     }
 

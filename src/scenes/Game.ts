@@ -1,9 +1,12 @@
 import { Animations } from "phaser";
 import * as Animation from "../modules/Animation"
+import { EmptyBuildingSpot } from "../modules/EmptyBuildingSpot";
 import { Player } from "../modules/Player";
+import { RessourceBuilding } from "../modules/RessourceBuilding";
+import { Town } from "../modules/Town";
 
 export class GameScene extends Phaser.Scene{
-    drawables:{positionX:number,positionY:number,texture:Animation.Animations|Animation.Textures}[]=[];
+    drawables:{positionX:number,positionY:number,texture:Animation.Textures,animation:Animation.Animations}[]=[];
     player:Player;
     lastTick:number=0;
     constructor(){
@@ -41,44 +44,56 @@ export class GameScene extends Phaser.Scene{
         
         
     }
-    createSprite(item:{positionX:number,positionY:number,texture:Animation.Animations|Animation.Textures}){
-    
-        console.log("creating sprite")
+    testcounter=0;
+    createSprite(item:{positionX:number,positionY:number,texture:Animation.Textures,animation:Animation.Animations}){
+        console.log(this.testcounter);
+        this.testcounter++;
         var sprite=this.add.sprite(item.positionX,item.positionY,item.texture,0).setInteractive();
         Animation.spriteMap.set(item,sprite);
-        console.log(item.texture);
-        console.log(typeof(Animation.Animations));
-        if(item.texture in Animation.Animations){
-            sprite.play(item.texture)
+
+
+        if(item instanceof EmptyBuildingSpot){
+            console.log("Adding event listener to empybuildingspot")
+            sprite.on('pointerdown',()=>{item.onClick();});
         }
-        sprite.on('pointerdown',()=>{
-            switch(item.texture){
-                case Animation.Animations.bomb:
-                    item.texture=Animation.Animations.jump;
-                    break;
-                case Animation.Animations.jump:
-                    item.texture=Animation.Animations.leaves;
-                    break;
-                case Animation.Animations.leaves:
-                    item.texture=Animation.Animations.bomb;
-                    break;
-            };
-            sprite.play(item.texture);
-        });
+        else if(item instanceof Town){
+
+        }
+        else if(item instanceof RessourceBuilding){
+            console.log("Adding event listener")
+            sprite.on('pointerdown',()=>{
+                switch(item.animation){
+                    case Animation.Animations.bomb:
+                        item.animation=Animation.Animations.jump;
+                        break;
+                    case Animation.Animations.jump:
+                        item.animation=Animation.Animations.leaves;
+                        break;
+                    case Animation.Animations.leaves:
+                        item.animation=Animation.Animations.bomb;
+                        break;
+                    default:
+                };
+            });
+        }
+        else{
+            sprite.on('pointerdown',()=>{console.log("clicked")});
+        }
+
         
     }
-    addItemToScene(item:any){
-        this.createSprite(item);
-    }
-
+    
     draw(){
+        this.drawables=this.player.getDrawables();
         this.drawables.forEach((item)=>{
             let sprite=Animation.spriteMap.get(item);
             if(typeof sprite !=="undefined"){
                 if(sprite.x!==item.positionX||sprite.y!==item.positionY){
                     sprite.setX(item.positionX);
                     sprite.setY(item.positionY);
-
+                }
+                if(item.animation in Animation.Animations&&!sprite.anims.isPlaying){
+                    sprite.play(item.animation);
                 }
             }
         })
