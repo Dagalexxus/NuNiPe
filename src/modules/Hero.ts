@@ -2,57 +2,141 @@ export class Hero {
     texture: string;
     rarity: string;
     level: number;
-    cost: number;
-    lethality: number;
+    costPerQuest: number;
+    survivability: number;
     sex: number;
-    abilities: string[];
-    name: string;
-    namesList:any;
+    //abilities: string[];
+    name: string = "";
+    namesList: any;
     constructor(texture: string) {
         this.texture = texture;
         this.rarity = this.setRarity(1); //town level nutzen
         this.level = 1;
-        this.cost = this.setCost();
-        this.lethality = this.setLethality();
+        this.costPerQuest = this.setCost(1); //tavern level nutzen
+        this.survivability = this.setSurvivability();
         this.sex = this.setSex();
-        this.abilities = this.setAbilities(); //
+        console.log(this.sex);
+        //this.abilities = this.setAbilities(); //
         let loadNamesJSON = this.loadNames(); //
-        loadNamesJSON.then(this.setName);
+        loadNamesJSON.then(() => this.setName(this.sex));
+        console.log("finished");
     }
+
     async loadNames(): Promise<boolean> {
-        this.namesList  = await (await fetch("../../assets/JSON/HeroNames.json")).json();
+        this.namesList = await (await fetch("../../assets/JSON/HeroNames.json")).json();
         return true;
     }
-    setRarity(townLevel: number): string {
-        let rnd:number = Math.ceil(Math.random()*100);
-        let rarity: string = "";
-        switch(true) {
-            case (rnd < 1*townLevel): {
-                this.rarity = "legendary";
+    setSurvivability(): number {
+        let survivability: number;
+        switch (this.rarity) {
+            case "common": {
+                survivability = 50;
                 break;
             }
-            case (rnd < 7*townLevel): {
-                this.rarity = "epic";
+            case "uncommon": {
+                survivability = 25;
                 break;
             }
-            case (rnd < 21*townLevel): {
-                this.rarity = "rare";
+            case "rare": {
+                survivability = 10;
                 break;
             }
-            case (rnd < 51*townLevel): {
-                this.rarity = "uncommon";
+            case "epic": {
+                survivability = 5;
                 break;
             }
             default: {
-                this.rarity = "common";
+                survivability = 2;
+                break;
+            }
+
+        }
+        return survivability;
+    }
+    setCost(tavernLevel: number): number {
+        let cost: number;
+        let rarityNumber: number;
+        switch (this.rarity) {
+            case "common": {
+                rarityNumber = 1;
+                break;
+            }
+            case "uncommon": {
+                rarityNumber = 2;
+                break;
+            }
+            case "rare": {
+                rarityNumber = 3;
+                break;
+            }
+            case "epic": {
+                rarityNumber = 4;
+                break;
+            }
+            default: {
+                rarityNumber = 5;
+                break;
+            }
+
+        }
+        cost = tavernLevel * rarityNumber * 100;
+        return cost;
+    }
+    setRarity(tavernLevel: number): string {
+        let rnd: number = Math.ceil(Math.random() * 100);
+        let rarityString: string;
+        switch (true) {
+            case (rnd < 1 * tavernLevel): {
+                rarityString = "legendary";
+                break;
+            }
+            case (rnd < 7 * tavernLevel): {
+                rarityString = "epic";
+                break;
+            }
+            case (rnd < 21 * tavernLevel): {
+                rarityString = "rare";
+                break;
+            }
+            case (rnd < 51 * tavernLevel): {
+                rarityString = "uncommon";
+                break;
+            }
+            default: {
+                rarityString = "common";
                 break;
             }
         }
-        return rarity;
+        return rarityString;
+
     }
-    setName():void {
-        this.namesList.
-        this.name = "steve";
+
+    setSex(): number {
+        let rndSex: number = Math.floor(Math.random() * 2);
+
+        return rndSex;
     }
-    
+
+    setName(sex: number): void {
+        console.log("start meth");
+        let firstNameArray: string[];
+        if (sex == 0) {
+            firstNameArray = this.namesList.maleNames;
+            console.log(firstNameArray);
+        } else {
+            firstNameArray = this.namesList.femaleNames;
+            console.log(firstNameArray);
+        }
+        let lastNameArray: string[];
+        lastNameArray = this.namesList.lastNames;
+        let nameOutput: string = "";
+        let pickedFirstName: number = Math.floor(Math.random() * firstNameArray.length);
+        let pickedLastName: number = Math.floor(Math.random() * lastNameArray.length);
+        nameOutput = firstNameArray[pickedFirstName] + " " + lastNameArray[pickedLastName];
+        this.name = nameOutput;
+
+        this.namesList = null;
+        console.log(this);
+    }
+
 }

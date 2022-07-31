@@ -1,4 +1,5 @@
 import { Building } from "./Building";
+import { Hero } from "./Hero";
 import { Town } from "./Town"
 export class Player{
     
@@ -16,6 +17,7 @@ export class Player{
         this.town.addBuilding(new Building(490,250,"treeAnimation"));
         this.town.addBuilding(new Building(490,120,"treeAnimation"));
         this.town.addBuilding(new Building(100,100,"bombAnimation"));
+        let hero: Hero = new Hero("");
     }
 
     getDrawables(){
