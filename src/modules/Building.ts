@@ -2,17 +2,15 @@ import { Town } from "./Town";
 import  {Animations,Textures} from "./Animation"
 
 export class Building{
-    positionX:number
-    positionY:number
+    
     texture:Textures
-    animation:Animations|undefined
+    animation:Animations | null
     town:Town
 
-    constructor(posx:number,posy:number,texture:Textures, town:Town){
-        this.positionX=posx;
-        this.positionY=posy;
+    constructor(texture:Textures, town:Town){
+        
         this.texture=texture;
-        this.animation=undefined;
+        this.animation=null;
         this.town = town;
     }
 

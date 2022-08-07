@@ -4,21 +4,25 @@ export enum Textures{
     house="house",
     tree="tree",
     town="town",
-    emptySpot="emptySpot"
+    emptySpot="emptySpot",
+    window="window",
+    xButton="xButton"
 }
 export var fileMapTexture:Map<string,any>=new Map<string,any>([
     ["house","assets/House.png"],
     ["tree","assets/Tree.png"],
     ["town","assets/Town.png"],
-    ["emptySpot","assets/EmptySpot.png"]
+    ["emptySpot","assets/EmptySpot.png"],
+    ["window","assets/Window.png"],
+    ["xButton","assets/XButton.png"]
 ]);
 export enum AnimationTextures{
-    houseAnimation="houseAnimation",
-    treeAnimation="treeAnimation",
-    bombAnimation="bombAnimation"
+    houseAnimation="HouseAnimation",
+    treeAnimation="TreeAnimation",
+    bombAnimation="BombAnimation"
 }
 export var fileMapAnimation:Map<AnimationTextures,string[]>=new Map<AnimationTextures,string[]>([
-    [AnimationTextures.houseAnimation,["assets/Animation.png","assets/Animation.json"]],
+    [AnimationTextures.houseAnimation,["assets/HouseAnimation.png","assets/HouseAnimation.json"]],
     [AnimationTextures.treeAnimation,["assets/TreeAnimation.png","assets/TreeAnimation.json"]],
     [AnimationTextures.bombAnimation,["assets/BombAnimation.png","assets/BombAnimation.json"]]
 ])
@@ -35,19 +39,19 @@ export enum Animations{
 export class AnimationConfigs{
     static animConfigHouse ={
         key: 'jump',
-        frames: 'houseAnimation',
+        frames: 'HouseAnimation',
         frameRate: 20,
         repeat: 0
     };
     static animConfigTree = {
         key: 'leaves',
-        frames: 'treeAnimation',
+        frames: 'TreeAnimation',
         frameRate: 10,
         repeat: 0
     };
     static animConfigBomb={
         key: 'bomb',
-        frames: 'bombAnimation',
+        frames: 'BombAnimation',
         frameRate:20,
         repeat:0
     };

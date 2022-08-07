@@ -1,31 +1,35 @@
 import { Building } from "./Building";
 import { Town } from "./Town"
 import  {Animations,Textures} from "./Animation"
-import { EmptyBuildingSpot } from "./EmptyBuildingSpot";
+import { BuildingSpot } from "./BuildingSpot";
 import { RessourceBuilding } from "./RessourceBuilding";
+import { GameScene } from "../scenes/Game";
 export class Player{
     
     town:Town;
 
-    constructor(towntexture:string){
-        this.town=new Town(towntexture);
-        this.town.addBuilding(new EmptyBuildingSpot(50,50,Textures.emptySpot, this.town));
-        this.town.addBuilding(new RessourceBuilding(150,250,Textures.tree, 1,this.town));
-        this.town.addBuilding(new Building(260,270,Textures.tree,this.town));
-        this.town.addBuilding(new Building(480,350,Textures.tree,this.town));
-        this.town.addBuilding(new Building(370,300,Textures.house,this.town));
-        this.town.addBuilding(new Building(240,210,Textures.house,this.town));
-        this.town.addBuilding(new Building(290,200,Textures.house,this.town));
-        this.town.addBuilding(new Building(490,250,Textures.house,this.town));
-        this.town.addBuilding(new Building(490,120,Textures.house,this.town));
-        this.town.buildings[1].animation=Animations.bomb;
+    constructor(towntexture:string, scene:GameScene){
+        this.town = new Town(towntexture, scene);
+        let tree = new RessourceBuilding( Textures.tree, 1,this.town);
+        tree.animation = Animations.leaves;
+        let house1 =  new Building(Textures.house,this.town);
+        
+        this.town.addBuildingSpot(350,150);
+        this.town.buildingSpots[0].setBuildingOnSpot(tree);
+
+        this.town.addBuildingSpot(140,150);
+        this.town.buildingSpots[1].setBuildingOnSpot(house1);
+
+        this.town.addBuildingSpot(250,150);
+        this.town.addBuildingSpot(300,250);
+        this.town.addBuildingSpot(430,250);
+        
     }
 
-    getDrawables(){
+    getBuildingSpots(){
         let result:any[]=[];
-        result.push(this.town);
-        this.town.buildings.forEach(building => {
-            result.push(building);
+        this.town.buildingSpots.forEach(buildingSpot => {
+            result.push(buildingSpot);  
         });
         return result;
     }

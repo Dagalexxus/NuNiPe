@@ -1,7 +1,9 @@
+import { GameScene } from "../scenes/Game";
 import {Building} from "./Building"
+import { BuildingSpot } from "./BuildingSpot";
 export class Town{
-
-    buildings:Building[];
+    scene:GameScene;
+    buildingSpots:BuildingSpot[];
     positionX:number=0
     positionY:number=0
     texture:string;
@@ -11,8 +13,9 @@ export class Town{
     food:number
 
 
-    constructor(texture:string){
-        this.buildings=[];
+    constructor(texture:string,scene:GameScene){
+        this.scene =scene
+        this.buildingSpots=[];
         this.gold=0;
         this.wood=0;
         this.stone=0;
@@ -22,14 +25,14 @@ export class Town{
     }
 
     update(time:number){
-        this.buildings.forEach((building)=>building.update(time));
+        this.buildingSpots.forEach((buildingSpot)=>buildingSpot.building?.update(time));
     }
 
-    addBuilding(b:Building){
-        this.buildings.push(b);
+    addBuildingSpot(posX: number, posY: number){
+        this.buildingSpots.push(new BuildingSpot(this.scene,posX, posY, this));
     }
 
-    removeBuilding(b:Building){
-        this.buildings.splice(this.buildings.indexOf(b),1);
+    removeBuildingSpot(b:BuildingSpot){
+        this.buildingSpots.splice(this.buildingSpots.indexOf(b),1);
     }
 }

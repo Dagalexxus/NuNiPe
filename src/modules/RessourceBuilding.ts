@@ -77,8 +77,8 @@ export class RessourceBuilding extends Building{
 
     level:number;
     
-    constructor(posx:number,posy:number,texture:Textures, level:number, town:Town){
-        super(posx, posy, texture,town)
+    constructor(texture:Textures, level:number, town:Town){
+        super(texture,town)
         this.level = level;
     }
 
